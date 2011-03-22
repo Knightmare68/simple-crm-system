@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Customer>
+  <Attribute type="string"></Attribute>
+  <Attribute type="string"></Attribute>
+</Customer>
