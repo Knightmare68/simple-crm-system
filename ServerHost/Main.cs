@@ -29,7 +29,7 @@ namespace ServerHost
         private void btn_start_Click(object sender, EventArgs e)
         {
             this.timer.Enabled = true;
-            server.StartServer();
+            server.StartServer(this.txt_port.Text);
             this.pictureBox1.Image = Resources.green;
             this.btn_start.Enabled = false;
             this.btn_stop.Enabled = true;
@@ -47,7 +47,7 @@ namespace ServerHost
        
         private void startserverToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           server.StartServer();
+            server.StartServer(this.txt_port.Text);
         }
 
         private void StopServerToolStripMenuItem_Click(object sender, EventArgs e)
