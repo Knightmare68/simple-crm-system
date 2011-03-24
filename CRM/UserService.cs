@@ -11,7 +11,6 @@ namespace CRM
     using System.ServiceModel;
     public partial class CRMService : IUserService
     {
-
         public UserDAL userdatalayer = new UserDAL();
         #region IUserService Members
 
@@ -52,6 +51,8 @@ namespace CRM
             User u = this.GetUserByID(uid);
             if(u!= null && u.Password == password)
             {
+                //The User right is correct.
+                this.userdatalayer.UpdateStatus(User.LOGINED, uid);                
                 return true;
             }
             return false;

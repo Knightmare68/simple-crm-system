@@ -8,7 +8,9 @@ namespace CRM
     using DAL;
     using Models;
     using System.ServiceModel;
-    [ServiceBehavior(IncludeExceptionDetailInFaults=true)]
+    [ServiceBehavior(IncludeExceptionDetailInFaults = true, 
+        InstanceContextMode = InstanceContextMode.PerSession,
+        ConcurrencyMode= ConcurrencyMode.Single)]
     public partial class CRMService:ITaskService
     {
         public TaskDAL taskdal = new TaskDAL();
@@ -38,7 +40,6 @@ namespace CRM
         public IList<Task> FindList()
         {
             return taskdal.GetList();
-            //throw new NotImplementedException();
         }
 
         #endregion
@@ -49,8 +50,6 @@ namespace CRM
         public Task GetCurTask()
         {
             return taskdal.GetLastestTask();
-            //taskdal.GetByID()
-            //throw new NotImplementedException();
         }
 
         #endregion

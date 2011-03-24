@@ -5,18 +5,7 @@ namespace Client
 {
 
     partial class Main
-    {
-        private class Item
-        {
-            private string name;
-            private object value;
-            public string Name { get { return name; } }
-            public object Value{ get { return this.value; } }
-            public Item(string name, object value)
-            {
-                this.name = name; this.value = value;
-            }
-        }
+    {      
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -592,7 +581,6 @@ namespace Client
             // 
             // timer
             // 
-            this.timer.Enabled = true;
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 

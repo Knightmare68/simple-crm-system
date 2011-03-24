@@ -6,7 +6,7 @@ using System.Text;
 namespace DAL
 {
     using Models;
-    public class CucstomerDAL:IDAL<Customer,int>
+    public class CustomerDAL:IDAL<Customer,int>
     {
 
         public CRMDataSetTableAdapters.customerTableAdapter CustomerDataTableAdapter

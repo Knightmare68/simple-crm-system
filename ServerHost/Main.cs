@@ -8,56 +8,71 @@ using System.Text;
 using System.Windows.Forms;
 using System.ServiceModel;
 using CRM;
-using System.ServiceModel.Description;
 using ServerHost.Properties;
-using System.Net;
+using Models;
 namespace ServerHost
 {
     public partial class Main : Form
     {
-        ServiceHost ManagerHost;
+        Server server = new Server();
+        CRMService service = new CRMService();
         public Main()
         {
             InitializeComponent();
         }
+       
 
+        void Channel_Closed(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
         private void btn_start_Click(object sender, EventArgs e)
         {
-            try
-            {
-                ManagerHost = new ServiceHost(typeof(CRMService));
-                IPAddress[] addresslist = Dns.GetHostAddresses(Dns.GetHostName());
-                NetTcpBinding binding = new NetTcpBinding();
-                String endpointaddress = "net.tcp://" + addresslist[0].ToString()+":" + this.txt_port.Text + "/UserService";
-                ServiceEndpoint endPoint = ManagerHost.AddServiceEndpoint(
-                    typeof(IUserService), binding,
-                    endpointaddress);
-                String customeraddress = "net.tcp://" + addresslist[0].ToString()+":" + this.txt_port.Text + "/CustomerService";
-                ServiceEndpoint customerEndPoint = ManagerHost.AddServiceEndpoint(
-                    typeof(ICustomerService), binding, customeraddress);
-                String taskaddress = "net.tcp://" + addresslist[0].ToString() + ":" + this.txt_port.Text + "/TaskService";
-                ServiceEndpoint taskEndPoint = ManagerHost.AddServiceEndpoint(
-                    typeof(ITaskService), binding, taskaddress);
-                //endPoint.Behaviors.Add();
-                ManagerHost.Open();
-                this.pictureBox1.Image = Resources.green;
-                this.btn_start.Enabled = false;
-                this.btn_stop.Enabled = true;
-            }
-            catch (System.Exception ex)
-            {
-                this.serverstatuslist.Items.Add(ex.Message.ToString()+Environment.NewLine+ex.StackTrace);
-            	
-            }
+            this.timer.Enabled = true;
+            server.StartServer();
+            this.pictureBox1.Image = Resources.green;
+            this.btn_start.Enabled = false;
+            this.btn_stop.Enabled = true;
             //endPoint.Behaviors.Add(new CustomBehavior());
         }
 
         private void btn_stop_Click(object sender, EventArgs e)
         {
-            ManagerHost.Close();
+            this.timer.Enabled = false;
+            server.StopServer();
             this.pictureBox1.Image = Resources.red;
             this.btn_start.Enabled = true;
             this.btn_stop.Enabled = false;
+        }
+       
+        private void startserverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           server.StartServer();
+        }
+
+        private void StopServerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            server.StopServer();
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            //foreach (User u in this.service.userdatalayer.GetLoginedUser())
+            //{
+            //    this.serverstatuslist.Items.Add(u.UserName + Environment.NewLine);
+            //}
+        }
+
+        private void btn_currentonline_Click(object sender, EventArgs e)
+        {
+            CurrentOnLineForm form = new CurrentOnLineForm();
+            form.ShowDialog(this);
+        }
+
+        private void btn_usermanager_Click(object sender, EventArgs e)
+        {
+            UserManagerForm usermgmtform = new UserManagerForm();
+            usermgmtform.ShowDialog(this);
         }
     }
 }

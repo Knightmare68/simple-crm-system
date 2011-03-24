@@ -39,6 +39,7 @@ namespace Client
             t.Starttime = this.dtp_starttime.Value;
             t.EndTime = this.dtp_endtime.Value;
             t.Description = this.txt_description.Text;
+            t.Status = Task.Planned;
             t.User.UserName = GlobalData.GetInstance().ShareData["User"].ToString();
             ClientProxy.GetInstance().GetTaskService.AddTask(t);
             ClearContent();

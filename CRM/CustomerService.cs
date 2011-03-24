@@ -10,7 +10,7 @@ namespace CRM
     using System.ServiceModel;
     public partial class CRMService:ICustomerService
     {
-        public DAL.CucstomerDAL CustomerDataLayer= new DAL.CucstomerDAL();
+        public DAL.CustomerDAL CustomerDataLayer = new DAL.CustomerDAL();
 
         #region ICustomerService Members
 

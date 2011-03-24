@@ -185,6 +185,10 @@
       <Project>{A8E45AA8-C331-4C37-B195-A4BA129D10E0}</Project>
       <Name>Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{BD83855F-A183-4718-8B85-0B9566DA1530}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
