@@ -21,20 +21,18 @@ namespace DAL
             UserTableAdapter.Insert(t.UserName, 
                 t.Password, 
                 t.Description,
-                (int)t.CurrentRole);
+                t.Role,t.Status);
         }
 
         public void Update(User t)
         {
             UserTableAdapter.Update(t.Password, t.Description, 
-                (int)t.CurrentRole, t.UserName);
-            //throw new NotImplementedException();
+                t.Role, t.Status,t.UserName);
         }
 
         public void Delete(string id)
         {
             UserTableAdapter.Delete(id);
-           // throw new NotImplementedException();
         }
 
         public IList<User> GetList()
@@ -60,6 +58,15 @@ namespace DAL
             }            
         }
 
+        public void UpdateStatus(string status,string username)
+        {
+            UserTableAdapter.UpdateStatus(status, username);
+        }
+
+        public IList<User> GetLoginedUser()
+        {
+            return Mapper.Map(this.UserTableAdapter.GetLoginedUser());
+        }
         #endregion
     }
 }

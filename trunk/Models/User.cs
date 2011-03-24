@@ -5,15 +5,12 @@ using System.Text;
 using System.Runtime.Serialization;
 namespace Models
 {
-    public enum Role
-    {
-        Admin,
-        Guest,
-        PowerUser
-    }
     [DataContract]
     public class User:Model
     {
+
+        public static String LOGINED= "Logined";
+        public static String LOGOFF= "Logoff";
         public User()
         {
             this.TaskList = new List<Task>();
@@ -25,9 +22,11 @@ namespace Models
         [DataMember]
         public string Description { get; set; }
         [DataMember]
-        public Role CurrentRole { get; set; }
+        public int Role { get; set; }
         [DataMember]
         public IList<Task> TaskList{ get; set; }
+        [DataMember]
+        public String Status{ get; set; }
 
     }
 

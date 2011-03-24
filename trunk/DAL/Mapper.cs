@@ -40,7 +40,7 @@ namespace DAL
                 u.UserName = task.userRow.username;
                 u.Password = task.userRow.password;
                 u.Description = task.userRow.description;
-                u.CurrentRole = (Role)task.userRow.role;
+                u.Role = task.userRow.role;
                 t.User = u;
                 c.TaskList.Add(t);
             }
@@ -58,7 +58,8 @@ namespace DAL
             u.UserName = row.username;
             u.Password = row.password;
             u.Description = row.description;
-            u.CurrentRole = (Role)row.role;
+            u.Status = row.status;
+            u.Role = row.role;
             foreach (CRMDataSet.tasksRow task in row.GettasksRows())
             {
                 Task t = new Task();
@@ -71,7 +72,20 @@ namespace DAL
             }
             return u;
         }
-
+        public static IList<User> Map(CRMDataSet.userDataTable datatable)
+        {
+            if (datatable== null)
+            {
+                return null;
+            }
+            List<User> result = new List<User>();
+            foreach (CRMDataSet.userRow row in datatable.Rows)
+            {
+                User u =Mapper.Map(row);
+                result.Add(u);
+            }
+            return result;
+        }
         public static Task Map(CRMDataSet.tasksRow row)
         {
             if (row == null)

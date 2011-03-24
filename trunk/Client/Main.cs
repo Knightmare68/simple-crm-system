@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using CRM;
 using Models;
 using System.Collections;
-
+using Utility;
 namespace Client
 {
     public partial class Main : Form
@@ -57,7 +57,8 @@ namespace Client
         }
         private void Main_Load(object sender, EventArgs e)
         {
-            
+
+            this.timer.Enabled = true;
             // TODO: This line of code loads data into the 'crmDataSet.customer' table. You can move, or remove it, as needed.
             this.gv_customer.DataSource = ClientProxy.GetInstance().GetCustomerServcie.GetCustomers();
         }
@@ -221,11 +222,11 @@ namespace Client
         private void timer_Tick(object sender, EventArgs e)
         {
             this.lbl_currenttime.Text ="当前时间:"+DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
-            Task task = ClientProxy.GetInstance().GetTaskService.GetCurTask();
-            if (task != null && DateTime.Now.Subtract(task.EndTime).Minutes <= 1)
-            {
-                tasknotifier.Show("提醒", task.Description, 500, 3000, 500);        
-            }            
+            //Task task = ClientProxy.GetInstance().GetTaskService.GetCurTask();
+            //if (task != null && DateTime.Now.Subtract(task.EndTime).Minutes <= 1)
+            //{
+            //    tasknotifier.Show("提醒", task.Description, 500, 3000, 500);        
+            //}            
         }
 
         private void ShowNotificationIcon()

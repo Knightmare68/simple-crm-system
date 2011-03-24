@@ -5,6 +5,7 @@ using System.Text;
 
 using CRM;
 using System.ServiceModel;
+using System.Windows.Forms;
 
 namespace Client
 {
@@ -12,9 +13,7 @@ namespace Client
     {                 
         public String ServerAddress { get; set; }
         public int ServerPort { get; set; }
-
         private ICustomerService customerservie;
-
         public ICustomerService GetCustomerServcie { get {
             if (customerservie == null)
             {
@@ -73,6 +72,9 @@ namespace Client
             {
                 this.ServerPort = Convert.ToInt32(System.Configuration.ConfigurationSettings.AppSettings["ServerPort"]);
             }
+
+            
+            
         }
 
         private static ClientProxy _instatnce = new ClientProxy();
@@ -88,11 +90,17 @@ namespace Client
         {
             NetTcpBinding binding = new NetTcpBinding();
             ChannelFactory<T> factory = new ChannelFactory<T>(binding);
-
+            factory.Closed += new EventHandler(factory_Closed);
             String url = type+"://"+server+":"+Port+"/"+UserEndpoint;
             EndpointAddress endPointAddress = 
                 new EndpointAddress(url);
             return factory.CreateChannel(endPointAddress);
+        }
+
+        void factory_Closed(object sender, EventArgs e)
+        {
+            MessageBox.Show("Factory Close");
+            //throw new NotImplementedException();
         }
 
         public ICustomerService GetCustomerService()

@@ -29,6 +29,7 @@ namespace ServerHost
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.serverstatuslist = new System.Windows.Forms.ListBox();
@@ -36,16 +37,19 @@ namespace ServerHost
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.MenuStrip = new System.Windows.Forms.MenuStrip();
             this.菜单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.启动服务器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.停止服务器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.startserverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StopServerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.服务器状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_start = new System.Windows.Forms.Button();
             this.btn_stop = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_usermanager = new System.Windows.Forms.Button();
+            this.btn_currentonline = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.port = new System.Windows.Forms.Label();
             this.txt_port = new System.Windows.Forms.TextBox();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.StatusBar.SuspendLayout();
             this.MenuStrip.SuspendLayout();
@@ -89,20 +93,22 @@ namespace ServerHost
             // 菜单ToolStripMenuItem
             // 
             this.菜单ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.启动服务器ToolStripMenuItem,
-            this.停止服务器ToolStripMenuItem});
+            this.startserverToolStripMenuItem,
+            this.StopServerToolStripMenuItem});
             this.菜单ToolStripMenuItem.Name = "菜单ToolStripMenuItem";
             resources.ApplyResources(this.菜单ToolStripMenuItem, "菜单ToolStripMenuItem");
             // 
-            // 启动服务器ToolStripMenuItem
+            // startserverToolStripMenuItem
             // 
-            this.启动服务器ToolStripMenuItem.Name = "启动服务器ToolStripMenuItem";
-            resources.ApplyResources(this.启动服务器ToolStripMenuItem, "启动服务器ToolStripMenuItem");
+            this.startserverToolStripMenuItem.Name = "startserverToolStripMenuItem";
+            resources.ApplyResources(this.startserverToolStripMenuItem, "startserverToolStripMenuItem");
+            this.startserverToolStripMenuItem.Click += new System.EventHandler(this.startserverToolStripMenuItem_Click);
             // 
-            // 停止服务器ToolStripMenuItem
+            // StopServerToolStripMenuItem
             // 
-            this.停止服务器ToolStripMenuItem.Name = "停止服务器ToolStripMenuItem";
-            resources.ApplyResources(this.停止服务器ToolStripMenuItem, "停止服务器ToolStripMenuItem");
+            this.StopServerToolStripMenuItem.Name = "StopServerToolStripMenuItem";
+            resources.ApplyResources(this.StopServerToolStripMenuItem, "StopServerToolStripMenuItem");
+            this.StopServerToolStripMenuItem.Click += new System.EventHandler(this.StopServerToolStripMenuItem_Click);
             // 
             // 信息ToolStripMenuItem
             // 
@@ -132,6 +138,8 @@ namespace ServerHost
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btn_usermanager);
+            this.panel2.Controls.Add(this.btn_currentonline);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.port);
             this.panel2.Controls.Add(this.txt_port);
@@ -139,6 +147,20 @@ namespace ServerHost
             this.panel2.Controls.Add(this.btn_stop);
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
+            // 
+            // btn_usermanager
+            // 
+            resources.ApplyResources(this.btn_usermanager, "btn_usermanager");
+            this.btn_usermanager.Name = "btn_usermanager";
+            this.btn_usermanager.UseVisualStyleBackColor = true;
+            this.btn_usermanager.Click += new System.EventHandler(this.btn_usermanager_Click);
+            // 
+            // btn_currentonline
+            // 
+            resources.ApplyResources(this.btn_currentonline, "btn_currentonline");
+            this.btn_currentonline.Name = "btn_currentonline";
+            this.btn_currentonline.UseVisualStyleBackColor = true;
+            this.btn_currentonline.Click += new System.EventHandler(this.btn_currentonline_Click);
             // 
             // pictureBox1
             // 
@@ -156,6 +178,10 @@ namespace ServerHost
             // 
             resources.ApplyResources(this.txt_port, "txt_port");
             this.txt_port.Name = "txt_port";
+            // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // Main
             // 
@@ -190,8 +216,8 @@ namespace ServerHost
         private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
         private System.Windows.Forms.MenuStrip MenuStrip;
         private System.Windows.Forms.ToolStripMenuItem 菜单ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 启动服务器ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 停止服务器ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem startserverToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem StopServerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 信息ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 服务器状态ToolStripMenuItem;
         private System.Windows.Forms.Button btn_start;
@@ -201,6 +227,9 @@ namespace ServerHost
         private System.Windows.Forms.TextBox txt_port;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ListBox serverstatuslist;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button btn_usermanager;
+        private System.Windows.Forms.Button btn_currentonline;
 
 
 

@@ -117,44 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;serverstatuslist.Name" xml:space="preserve">
-    <value>serverstatuslist</value>
-  </data>
-  <data name="&gt;&gt;serverstatuslist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;serverstatuslist.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;serverstatuslist.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 107</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>580, 236</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="serverstatuslist.HorizontalScrollbar" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="serverstatuslist.ItemHeight" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="serverstatuslist.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 3</value>
   </data>
@@ -179,9 +149,36 @@
   <data name="&gt;&gt;serverstatuslist.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 107</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>580, 236</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <metadata name="StatusBar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 348</value>
   </metadata>
+  <data name="StatusLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 17</value>
+  </data>
+  <data name="StatusLabel.Text" xml:space="preserve">
+    <value>StatusLabel</value>
+  </data>
   <data name="StatusBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 348</value>
   </data>
@@ -206,15 +203,39 @@
   <data name="&gt;&gt;StatusBar.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="StatusLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>74, 17</value>
-  </data>
-  <data name="StatusLabel.Text" xml:space="preserve">
-    <value>StatusLabel</value>
-  </data>
   <metadata name="MenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>0, 0</value>
   </metadata>
+  <data name="startserverToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 22</value>
+  </data>
+  <data name="startserverToolStripMenuItem.Text" xml:space="preserve">
+    <value>启动服务器</value>
+  </data>
+  <data name="StopServerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 22</value>
+  </data>
+  <data name="StopServerToolStripMenuItem.Text" xml:space="preserve">
+    <value>停止服务器</value>
+  </data>
+  <data name="菜单ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="菜单ToolStripMenuItem.Text" xml:space="preserve">
+    <value>菜单</value>
+  </data>
+  <data name="服务器状态ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 22</value>
+  </data>
+  <data name="服务器状态ToolStripMenuItem.Text" xml:space="preserve">
+    <value>服务器状态</value>
+  </data>
+  <data name="信息ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 20</value>
+  </data>
+  <data name="信息ToolStripMenuItem.Text" xml:space="preserve">
+    <value>信息</value>
+  </data>
   <data name="MenuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -239,36 +260,6 @@
   <data name="&gt;&gt;MenuStrip.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="菜单ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
-  </data>
-  <data name="菜单ToolStripMenuItem.Text" xml:space="preserve">
-    <value>菜单</value>
-  </data>
-  <data name="启动服务器ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="启动服务器ToolStripMenuItem.Text" xml:space="preserve">
-    <value>启动服务器</value>
-  </data>
-  <data name="停止服务器ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="停止服务器ToolStripMenuItem.Text" xml:space="preserve">
-    <value>停止服务器</value>
-  </data>
-  <data name="信息ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
-  </data>
-  <data name="信息ToolStripMenuItem.Text" xml:space="preserve">
-    <value>信息</value>
-  </data>
-  <data name="服务器状态ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 22</value>
-  </data>
-  <data name="服务器状态ToolStripMenuItem.Text" xml:space="preserve">
-    <value>服务器状态</value>
-  </data>
   <data name="btn_start.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 35</value>
   </data>
@@ -291,7 +282,10 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;btn_start.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
+  </data>
+  <data name="btn_stop.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="btn_stop.Location" type="System.Drawing.Point, System.Drawing">
     <value>122, 35</value>
@@ -315,7 +309,55 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;btn_stop.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
+  </data>
+  <data name="btn_usermanager.Location" type="System.Drawing.Point, System.Drawing">
+    <value>350, 35</value>
+  </data>
+  <data name="btn_usermanager.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 36</value>
+  </data>
+  <data name="btn_usermanager.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btn_usermanager.Text" xml:space="preserve">
+    <value>用户管理</value>
+  </data>
+  <data name="&gt;&gt;btn_usermanager.Name" xml:space="preserve">
+    <value>btn_usermanager</value>
+  </data>
+  <data name="&gt;&gt;btn_usermanager.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_usermanager.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btn_usermanager.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btn_currentonline.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 35</value>
+  </data>
+  <data name="btn_currentonline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 36</value>
+  </data>
+  <data name="btn_currentonline.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btn_currentonline.Text" xml:space="preserve">
+    <value>当前在线用户</value>
+  </data>
+  <data name="&gt;&gt;btn_currentonline.Name" xml:space="preserve">
+    <value>btn_currentonline</value>
+  </data>
+  <data name="&gt;&gt;btn_currentonline.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_currentonline.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;btn_currentonline.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>518, 8</value>
@@ -336,7 +378,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="port.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -363,7 +405,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;port.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="txt_port.Location" type="System.Drawing.Point, System.Drawing">
     <value>76, 3</value>
@@ -387,7 +429,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;txt_port.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 27</value>
@@ -410,6 +452,9 @@
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>102, 0</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -438,16 +483,16 @@
   <data name="&gt;&gt;菜单ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;启动服务器ToolStripMenuItem.Name" xml:space="preserve">
-    <value>启动服务器ToolStripMenuItem</value>
+  <data name="&gt;&gt;startserverToolStripMenuItem.Name" xml:space="preserve">
+    <value>startserverToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;启动服务器ToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;startserverToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;停止服务器ToolStripMenuItem.Name" xml:space="preserve">
-    <value>停止服务器ToolStripMenuItem</value>
+  <data name="&gt;&gt;StopServerToolStripMenuItem.Name" xml:space="preserve">
+    <value>StopServerToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;停止服务器ToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;StopServerToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;信息ToolStripMenuItem.Name" xml:space="preserve">
@@ -461,6 +506,12 @@
   </data>
   <data name="&gt;&gt;服务器状态ToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;timer.Name" xml:space="preserve">
+    <value>timer</value>
+  </data>
+  <data name="&gt;&gt;timer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Main</value>
