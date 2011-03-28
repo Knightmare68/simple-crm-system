@@ -15,12 +15,23 @@ namespace Client
         static void Main()
         {
             Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
+            Application.ApplicationExit += new EventHandler(Application_ApplicationExit);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             FormManager.GetInstance().Add(new Login());
             FormManager.GetInstance().Add(new Main());
             //Application.Run(new Main());
             Application.Run(FormManager.GetInstance().GetFormByName(typeof(Login).ToString()));
+        }
+
+        static void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            object user = GlobalData.GetInstance().ShareData["User"];
+            //如果user is null,说明用户压根没登录过
+            if (user != null)
+            {
+                ClientProxy.GetInstance().GetUserService.Logoff(user.ToString());
+            }
         }
         private static readonly ILog log = LogManager.GetLogger("ClientApplication");
 

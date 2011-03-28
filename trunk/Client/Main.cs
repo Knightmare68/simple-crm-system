@@ -57,10 +57,7 @@ namespace Client
         }
         private void Main_Load(object sender, EventArgs e)
         {
-
-            this.timer.Enabled = true;
-            // TODO: This line of code loads data into the 'crmDataSet.customer' table. You can move, or remove it, as needed.
-            this.gv_customer.DataSource = ClientProxy.GetInstance().GetCustomerServcie.GetCustomers();
+            
         }
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
@@ -210,6 +207,12 @@ namespace Client
         private void logoff_toolStripButton_Click(object sender, EventArgs e)
         {
             FormManager.GetInstance().GetFormByName(typeof(Login).ToString()).Show();
+            if( GlobalData.GetInstance()["User"]!= null)
+            {
+                string uid = GlobalData.GetInstance()["User"].ToString();
+                ClientProxy.GetInstance().GetUserService.Logoff(uid);
+            }
+            
             this.Hide();
         }
 
@@ -255,6 +258,22 @@ namespace Client
         private void ni_reminder_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             HidNotificationIcon();
+        }
+
+        private void Main_Activated(object sender, EventArgs e)
+        {
+            this.timer.Enabled = true;
+            // TODO: This line of code loads data into the 'crmDataSet.customer' table. You can move, or remove it, as needed.            
+            if (GlobalData.GetInstance().ShareData["User"] != null)
+            {
+                String uid = GlobalData.GetInstance().ShareData["User"].ToString();
+                this.gv_customer.DataSource = ClientProxy.GetInstance().GetCustomerServcie.GetCustomersByUser(uid);
+            }
+        }
+
+        private void Main_Deactivate(object sender, EventArgs e)
+        {
+
         }
         //private void ShowNewForm(object sender, EventArgs e)
         //{

@@ -2662,8 +2662,9 @@ namespace DAL.CRMDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@p1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, true, 0, 0, "username", global::System.Data.DataRowVersion.Original, null));
             this._adapter.InsertCommand = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [user]\r\n                      (username, password, description, role," +
-                " status)\r\nVALUES     (@username,@password,@description,@role,@status)";
+            this._adapter.InsertCommand.CommandText = "if not exists(select username from [user] where username=@username)\r\nBEGIN\r\nINSER" +
+                "T INTO [user]\r\n                      (username, password, description, role, sta" +
+                "tus)\r\nVALUES     (@username,@password,@description,@role,@status)\r\nEND";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@username", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, true, 0, 0, "username", global::System.Data.DataRowVersion.Current, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@password", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, true, 0, 0, "password", global::System.Data.DataRowVersion.Current, null));
@@ -3412,7 +3413,7 @@ namespace DAL.CRMDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[3];
+            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT     id, starttime, description, endtime, username, cid, status\r\nFROM      " +
@@ -3429,6 +3430,12 @@ namespace DAL.CRMDataSetTableAdapters {
             this._commandCollection[2].CommandText = "SELECT TOP (1) cid, description, endtime, id, starttime, status, username FROM ta" +
                 "sks ORDER BY starttime DESC";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT     id, starttime, description, endtime, username, cid, status\r\nFROM      " +
+                "   tasks where username=@username";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@username", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, true, 0, 0, "username", global::System.Data.DataRowVersion.Current, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3469,6 +3476,22 @@ namespace DAL.CRMDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual CRMDataSet.tasksDataTable GetLatestTask() {
             this.Adapter.SelectCommand = this.CommandCollection[2];
+            CRMDataSet.tasksDataTable dataTable = new CRMDataSet.tasksDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual CRMDataSet.tasksDataTable GetTaskListByUser(string username) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((username == null)) {
+                throw new global::System.ArgumentNullException("username");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(username));
+            }
             CRMDataSet.tasksDataTable dataTable = new CRMDataSet.tasksDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -3794,7 +3817,7 @@ WHERE     (cid = @cid)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[3];
+            this._commandCollection = new global::System.Data.SqlServerCe.SqlCeCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlServerCe.SqlCeCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [cid], [customername], [gender], [companyname], [department], [position], " +
@@ -3829,6 +3852,13 @@ VALUES  (@customername,@gender,@companyname,@department,@position,@address,@webs
                 "scription], [owner] FROM [customer]\r\nwhere cid=@cid";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@cid", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, true, 0, 0, "cid", global::System.Data.DataRowVersion.Current, null));
+            this._commandCollection[3] = new global::System.Data.SqlServerCe.SqlCeCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT [cid], [customername], [gender], [companyname], [department], [position], " +
+                "[address], [website], [phone], [zip], [email], [mobile], [fax], [homephone], [de" +
+                "scription], [owner] FROM [customer] where owner=@owner";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlServerCe.SqlCeParameter("@owner", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, true, 0, 0, "owner", global::System.Data.DataRowVersion.Current, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3847,6 +3877,22 @@ VALUES  (@customername,@gender,@companyname,@department,@position,@address,@webs
         public virtual CRMDataSet.customerDataTable GetDataByID(int cid) {
             this.Adapter.SelectCommand = this.CommandCollection[2];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(cid));
+            CRMDataSet.customerDataTable dataTable = new CRMDataSet.customerDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual CRMDataSet.customerDataTable GetDataByOwner(string owner) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((owner == null)) {
+                throw new global::System.ArgumentNullException("owner");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(owner));
+            }
             CRMDataSet.customerDataTable dataTable = new CRMDataSet.customerDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

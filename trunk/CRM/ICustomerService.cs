@@ -13,6 +13,8 @@ namespace CRM
         [OperationContract]
         IList<Customer> GetCustomers();
         [OperationContract]
+        IList<Customer> GetCustomersByUser(string user);
+        [OperationContract]
         void AddCustomer(Customer c);
         [OperationContract]
         void UpdateCustomer(Customer c);

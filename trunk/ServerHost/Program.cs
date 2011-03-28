@@ -22,7 +22,7 @@ namespace ServerHost
 
         static void Application_ApplicationExit(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+           
         }
     }
 }

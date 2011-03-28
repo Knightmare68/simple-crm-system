@@ -602,8 +602,10 @@ namespace Client
             this.MainMenuStrip = this.menuStrip;
             this.Name = "Main";
             this.Text = "Main";
+            this.Deactivate += new System.EventHandler(this.Main_Deactivate);
             this.Load += new System.EventHandler(this.Main_Load);
             this.SizeChanged += new System.EventHandler(this.Main_SizeChanged);
+            this.Activated += new System.EventHandler(this.Main_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.mainpanel.ResumeLayout(false);
             this.mainpanel.PerformLayout();

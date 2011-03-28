@@ -20,7 +20,8 @@ namespace Client
         }
         private void Refreshdata()
         {
-            IList<Task> result = ClientProxy.GetInstance().GetTaskService.FindList();
+            String user = GlobalData.GetInstance()["User"].ToString();
+            IList<Task> result = ClientProxy.GetInstance().GetTaskService.GetListByUser(user);
             this.dgv_tasklist.DataSource = result;
         }
         private void DeleteOneCustomer(int rowindex)

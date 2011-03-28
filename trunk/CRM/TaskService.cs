@@ -53,5 +53,15 @@ namespace CRM
         }
 
         #endregion
+
+        #region ITaskService Members
+
+
+        public IList<Task> GetListByUser(string uid)
+        {
+            return this.TaskDAL.GetTaskByUser(uid);
+        }
+
+        #endregion
     }
 }

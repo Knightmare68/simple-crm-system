@@ -20,10 +20,10 @@ namespace CRM
         [OperationContract]
         IList<User> GetUserList();
         [OperationContract]
-        CRMDataSet.userDataTable GetUserDataTable();
-        [OperationContract]
         User GetUserByID(string uid);
         [OperationContract]
         bool Authenticate(String uid, string password);
+        [OperationContract]
+        void Logoff(string uid);
     }
 }

@@ -9,6 +9,16 @@ namespace DAL
     using Models;
     public class Mapper
     {
+
+        public static IList<Customer> Map(CRMDataSet.customerDataTable table)
+        {
+            IList<Customer> result = new List<Customer>();
+            foreach (CRMDataSet.customerRow row in table.Rows)
+            {
+                result.Add(Mapper.Map(row));
+            }
+            return result;
+        }
         public static Customer Map(CRMDataSet.customerRow row)
         {
             if (row == null)
@@ -101,6 +111,16 @@ namespace DAL
             t.Status = row.status;
             t.User = Map(row.userRow);
             return t;
+        }
+
+        public static IList<Task> Map(CRMDataSet.tasksDataTable tasktable)
+        {
+            IList<Task> result = new List<Task>();
+           foreach (CRMDataSet.tasksRow row in tasktable.Rows)
+           {
+               result.Add(Map(row));
+           }
+           return result;
         }
     }
 }
