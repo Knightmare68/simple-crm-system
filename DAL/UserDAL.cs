@@ -18,10 +18,18 @@ namespace DAL
 
         public void Add(User t)
         {
-            UserTableAdapter.Insert(t.UserName, 
-                t.Password, 
-                t.Description,
-                t.Role,t.Status);
+            if (UserTableAdapter.GetDataByID(t.UserName).Rows.Count != 0)
+            {
+
+                Update(t);
+            }
+            else
+            {
+                UserTableAdapter.Insert(t.UserName,
+                    t.Password,
+                    t.Description,
+                    t.Role, t.Status);
+            }
         }
 
         public void Update(User t)

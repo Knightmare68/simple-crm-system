@@ -95,6 +95,7 @@ namespace Client
             this.查找客户信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.ni_reminder = new System.Windows.Forms.NotifyIcon(this.components);
+            this.帮助手册ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainpanel.SuspendLayout();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gv_customer)).BeginInit();
@@ -429,8 +430,10 @@ namespace Client
             // 
             this.addcustomerToolStripMenuItem.Name = "addcustomerToolStripMenuItem";
             this.addcustomerToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+R";
+            this.addcustomerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
             this.addcustomerToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.addcustomerToolStripMenuItem.Text = "添加客户";
+            this.addcustomerToolStripMenuItem.Click += new System.EventHandler(this.addcustomerToolStripMenuItem_Click);
             // 
             // TaskToolStripMenuItem
             // 
@@ -445,14 +448,19 @@ namespace Client
             // 
             this.AddTaskToolStripMenuItem.Name = "AddTaskToolStripMenuItem";
             this.AddTaskToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+T";
+            this.AddTaskToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
             this.AddTaskToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.AddTaskToolStripMenuItem.Text = "添加任务";
+            this.AddTaskToolStripMenuItem.Click += new System.EventHandler(this.AddTaskToolStripMenuItem_Click);
             // 
             // ViewTaskListToolStripMenuItem
             // 
             this.ViewTaskListToolStripMenuItem.Name = "ViewTaskListToolStripMenuItem";
-            this.ViewTaskListToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.ViewTaskListToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt)
+                        | System.Windows.Forms.Keys.T)));
+            this.ViewTaskListToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.ViewTaskListToolStripMenuItem.Text = "查看任务列表";
+            this.ViewTaskListToolStripMenuItem.Click += new System.EventHandler(this.ViewTaskListToolStripMenuItem_Click);
             // 
             // 其他ToolStripMenuItem
             // 
@@ -466,11 +474,14 @@ namespace Client
             // 
             this.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem";
             this.SearchToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+F";
-            this.SearchToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.SearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.SearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.SearchToolStripMenuItem.Text = "查找";
             // 
             // 帮助ToolStripMenuItem
             // 
+            this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.帮助手册ToolStripMenuItem});
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
             this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.帮助ToolStripMenuItem.Text = "帮助";
@@ -591,6 +602,13 @@ namespace Client
             this.ni_reminder.Text = "notifyIcon1";
             this.ni_reminder.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ni_reminder_MouseDoubleClick);
             // 
+            // 帮助手册ToolStripMenuItem
+            // 
+            this.帮助手册ToolStripMenuItem.Name = "帮助手册ToolStripMenuItem";
+            this.帮助手册ToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.帮助手册ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.帮助手册ToolStripMenuItem.Text = "帮助手册";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -683,6 +701,7 @@ namespace Client
         private Label lbl_currenttime;
         private Timer timer;
         private NotifyIcon ni_reminder;
+        private ToolStripMenuItem 帮助手册ToolStripMenuItem;
     }
 }
 
