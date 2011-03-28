@@ -105,6 +105,10 @@ namespace Client
         }
         private void AddCustomertoolStripButton_Click(object sender, EventArgs e)
         {
+            ShowAddCustomerForm();
+        }
+        private void ShowAddCustomerForm()
+        {
             AddCustomer addcustomer = new AddCustomer();
             addcustomer.ShowDialog(this);
         }
@@ -163,12 +167,13 @@ namespace Client
 
         private void AddTasktoolStripButton_Click(object sender, EventArgs e)
         {
+            ShowAddTaskForm();
+        }
+        private void ShowAddTaskForm()
+        {
             AddTask addtaskform = new AddTask();
             addtaskform.ShowDialog(this);
-            //this.addtaskform.Visible = false;
-            //this.ShowDialog(this.addtaskform);
         }
-
         void btn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Delete Button");
@@ -218,10 +223,13 @@ namespace Client
 
         private void TaskListtoolStripButton_Click(object sender, EventArgs e)
         {
+            ShowTaskListForm();
+        }
+        private void ShowTaskListForm()
+        {
             TaskList tasklistform = new TaskList();
             tasklistform.ShowDialog(this);
         }
-
         private void timer_Tick(object sender, EventArgs e)
         {
             this.lbl_currenttime.Text ="当前时间:"+DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
@@ -274,6 +282,21 @@ namespace Client
         private void Main_Deactivate(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddTaskToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAddTaskForm();
+        }
+
+        private void addcustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowAddCustomerForm();
+        }
+
+        private void ViewTaskListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowTaskListForm();
         }
         //private void ShowNewForm(object sender, EventArgs e)
         //{
