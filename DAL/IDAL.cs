@@ -12,6 +12,5 @@ namespace DAL
         void Delete(TKey id);
         IList<T> GetList();
         T GetByID(TKey id);
-
     }
 }

@@ -49,5 +49,15 @@ namespace CRM
         }
 
         #endregion
+
+        #region ICustomerService Members
+
+
+        public IList<Customer> GetCustomersByUser(string user)
+        {
+            return CustomerDataLayer.GetListByUser(user);
+        }
+
+        #endregion
     }
 }

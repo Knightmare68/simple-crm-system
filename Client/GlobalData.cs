@@ -16,6 +16,16 @@ namespace Client
             }
             return _instance;
         }
+
+        public Object this[string key]{
+            get {
+                return this.ShareData[key]; 
+            }
+            set{
+                additem(key, value);
+            }
+
+        }
         public Dictionary<string, Object> ShareData
         {
             get { return sharedata; }
@@ -25,7 +35,7 @@ namespace Client
         {
             
         }
-        public void Add(String Key, Object value)
+        private void additem(String Key, Object value)
         {
             if (!this.ShareData.ContainsKey(Key))
             {
@@ -36,6 +46,14 @@ namespace Client
             {
                 this.ShareData[Key] = value;
             }
+        }
+        public void Add(String Key, Object value)
+        {
+            additem(Key, value);
+        }
+        public Object GetOjbect(string key)
+        {
+            return ShareData[key];
         }
     }
 }

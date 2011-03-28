@@ -61,16 +61,13 @@ namespace CRM
 
         #endregion
 
-        #region IUserService Members
-
-
-        public CRMDataSet.userDataTable GetUserDataTable()
+        public void Logoff(string uid)
         {
-            CRMDataSet.userDataTable result = this.userdatalayer.UserTableAdapter.GetData();
-            return result;
-            //throw new NotImplementedException();
+            User u = this.GetUserByID(uid);
+            if (u != null)
+            {
+                UserDAL.UpdateStatus(User.LOGOFF, uid);
+            }
         }
-
-        #endregion
     }
 }

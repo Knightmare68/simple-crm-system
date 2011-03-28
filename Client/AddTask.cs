@@ -15,7 +15,9 @@ namespace Client
         public AddTask()
         {
             InitializeComponent();
-            IList<Customer> result = ClientProxy.GetInstance().GetCustomerServcie.GetCustomers();
+            String uid = GlobalData.GetInstance()["User"].ToString();
+            IList<Customer> result = ClientProxy.GetInstance()
+                .GetCustomerServcie.GetCustomersByUser(uid);
             cbx_customer.DisplayMember = "CustomerName";
             cbx_customer.ValueMember = "CID";
             cbx_customer.DataSource = result;

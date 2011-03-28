@@ -58,6 +58,11 @@ namespace DAL
         }
 
         #endregion
+        public IList<Customer> GetListByUser(string uid)
+        {
+            return Mapper.Map(CustomerDataTableAdapter.GetDataByOwner(uid)
+                as CRMDataSet.customerDataTable);
+        }
 
     }
 }

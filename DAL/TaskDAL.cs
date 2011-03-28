@@ -56,6 +56,11 @@ namespace DAL
             return Mapper.Map(result.Rows[0] 
                 as CRMDataSet.tasksRow);
         }
+
+        public IList<Task> GetTaskByUser(String uid)
+        {
+            return Mapper.Map(this.tasktableadapter.GetTaskListByUser(uid));
+        }
         #endregion
     }
 }

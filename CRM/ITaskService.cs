@@ -21,6 +21,8 @@ namespace CRM
         [OperationContract]
         IList<Task> FindList();
         [OperationContract]
+        IList<Task> GetListByUser(String uid);
+        [OperationContract]
         Task GetCurTask();
 
     }
